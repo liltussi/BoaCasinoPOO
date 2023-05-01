@@ -4,15 +4,17 @@ class Boton {
   String texto; // texto en el botón
   boolean presionado; // estado del botón (presionado o no)
   Runnable accion; // función enlazada al botón
+  ControlP5 cp5;
 
   // Constructor del botón
-  Boton(float x, float y, float ancho, float alto, String texto) {
+  Boton(ControlP5 cp5, float x, float y, float ancho, float alto, String texto) {
     this.x = x;
     this.y = y;
     this.ancho = ancho;
     this.alto = alto;
     this.texto = texto;
     this.presionado = false;
+    this.cp5 = cp5;
   }
 
   // Método para dibujar el botón en la pantalla
@@ -22,13 +24,16 @@ class Boton {
     fill(colorr);
     rect(x, y, ancho, alto);
     textAlign(CENTER, CENTER);
+    textSize(12);
     fill(0);
     text(texto, x, y, ancho, alto);
   }
-
+  void removeBoton() {
+    cp5.remove(this);
+  }
   // Método para verificar si el botón ha sido presionado
   boolean estaPresionado() {
-    if (mouseX > x && mouseX < x + ancho && mouseY > y && mouseY < y + alto && mousePressed) {
+    if (mouseX > x && mouseX < x+ancho && mouseY > y-alto && mouseY < y + alto && mousePressed) {
       presionado=true;
       return true;
     } else {
@@ -36,7 +41,9 @@ class Boton {
       return false;
     }
   }
-
+  void setPresion(boolean Estado) {
+    this.presionado = Estado;
+  }
   // Método para enlazar una función al botón
   void enlazarAccion(Runnable accion) {
     this.accion = accion;

@@ -1,21 +1,34 @@
-class admArchivos{
+class admArchivos {
   private File usuarios;
   private File infoUsuarios;
-  admArchivos(File usuarios, File infoUsuarios){
+  admArchivos(File usuarios) {
     this.usuarios = usuarios;
     this.infoUsuarios = infoUsuarios;
   }
-  //public boolean validar(String input){
-  //}
-  //public void referencia(File xd){
-  //  File
-  //  this.usuarios = 
-  //}
-  public File getUsuarios(){
-    return usuarios;
+  boolean revisar(String usuario, String contraseña) {
+    try {
+      String line = null;
+      FileReader fileread = new FileReader(usuarios);
+      BufferedReader brr = new BufferedReader(fileread);
+      while ((line = brr.readLine()) != null) {
+        String temp[] = line.split("\t");
+        if ((temp[0].equalsIgnoreCase(usuario) && temp[1].equalsIgnoreCase(contraseña))) {
+          print("xd");
+          return true;
+        }
+      }
+      brr.close();
+      return false;
+    }
+    catch (IOException ex) {
+      System.out.println("No se encontro archivo");
+      return false;
+    }
   }
-  public File getInfo(){
-    return infoUsuarios;
-  }
-  
 }
+//public boolean validar(String input){
+//}
+//public void referencia(File xd){
+//  File
+//  this.usuarios =
+//}
