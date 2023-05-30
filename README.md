@@ -6,13 +6,13 @@ Proyecto POO
 -3 Juegos de casino.
 
 # Integrantes
--Sebastián Silvera
--Ana Gil
--Sebastián Pérez
--Alberto Sandoval
--Vanessa Orozco
+* Sebastián Silvera
+* Ana Gil
+* Sebastián Pérez
+* Alberto Sandoval
+* Vanessa Orozco
 
 Descargar librerias: 
--CP5
--Minim
+* CP5
+* Minim
 
