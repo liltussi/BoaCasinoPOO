@@ -1,0 +1,7 @@
+x	0
+xd	0
+silvera	20000
+FlacoDuro	100000
+Cesar	102000
+a	468417
+cristian	49500
